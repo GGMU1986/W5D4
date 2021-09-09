@@ -24,7 +24,14 @@ class Course < ApplicationRecord
         primary_key: :id,
         foreign_key: :prereq_id,
         class_name: :Course
-        if nil puts 'No prereq for this class!'
+        #remember to refactor 
+
+    belongs_to :instructor,
+        primary_key: :id, 
+        foreign_key: :instructor_id, 
+        class_name: :User  
+
+    
     
 
 
