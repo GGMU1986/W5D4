@@ -10,6 +10,7 @@
 #  updated_at    :datetime         not null
 #
 class Course < ApplicationRecord
+
     has_many :enrollments,
         primary_key: :id,
         foreign_key: :course_id,
@@ -18,4 +19,14 @@ class Course < ApplicationRecord
     has_many :enrolled_students,
         through: :enrollments,
         source: :user
+
+    belongs_to :prerequisite,
+        primary_key: :id,
+        foreign_key: :prereq_id,
+        class_name: :Course
+        if nil puts 'No prereq for this class!'
+    
+
+
+ 
 end
